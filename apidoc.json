@@ -1,0 +1,19 @@
+{
+  "name": "Kittens API",
+  "version": "1.0.0",
+  "description": "Kittens API to cater for a problem described here https://which-technical-exercise.herokuapp.com/",
+  "title": "Kittens API",
+  "url" 		: "",
+  "sampleUrl": "DYNAMIC",
+  "header": {
+    "title": "Overview",
+    "filename": "src/templates/apidocs_template/header.md"
+  },
+  "footer": {
+    "filename": "src/templates/apidocs_template/footer.md"
+  },
+  "template": {
+  	"withCompare": true,
+  	"withGenerator": true
+  }
+}

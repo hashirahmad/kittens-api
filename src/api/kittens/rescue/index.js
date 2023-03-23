@@ -26,13 +26,15 @@
 */
 const app = require('../../../app')
 const restify = require('../../../helpers/restifyHelpers')
+const rescueKittens = require('../../../logic/kittens/rescue')
 
 module.exports = (url) => {
     app.get(url, async (req, res, next) => {
         /** Get all params */
         const email = restify.getAsEmail(req, 'email', '', true)
 
-        const response = { hello: true, email }
+        const logic = new rescueKittens({ email })
+        const response = await logic.rescue()
         restify.ok({ req, res, next, response })
     })
 }

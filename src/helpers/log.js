@@ -105,6 +105,6 @@ exports.pretty = function ({
  * appropriate webhook url(s).
  */
 exports.keybase = {
-    /** Not public */
+    /** Public */
     info: 'https://bots.keybase.io/webhookbot/VtnltgspTXKAnT4g1VkAQDIFZZ4',
 }

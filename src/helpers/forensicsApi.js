@@ -2,7 +2,7 @@ const axios = require('axios').default
 const APIError = require('./APIError')
 const log = require('./log')
 
-class cmapi {
+class forensicsApi {
     constructor() {
         this.apiUrl = 'https://which-technical-exercise.herokuapp.com'
     }
@@ -68,4 +68,4 @@ class cmapi {
     }
 }
 
-module.exports = new cmapi()
+module.exports = new forensicsApi()

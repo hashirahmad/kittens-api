@@ -6,6 +6,7 @@ const sinon = require('sinon')
 const forensicsApi = require('../../../helpers/forensicsApi')
 const requestRescueForKittens = require('./request')
 const rescueKittens = require('./index')
+const setUp = require('../../tests/setUp')
 
 describe('Logic Rescue', () => {
     it('rescue() defined', () => {
@@ -72,5 +73,18 @@ describe('Logic Rescue', () => {
             assert.isString(response)
             sinon.verifyAndRestore()
         })
+    })
+
+    it(`Should gracefully fail if the Forensics API throws error`, async () => {
+        sinon.stub(forensicsApi, 'call').callsFake(() => {
+            setUp.throwDeliberateErr()
+        })
+        const logic = new rescueKittens({ email: 'does not matter' })
+        try {
+            await logic.rescue()
+        } catch (err) {
+            setUp.ensureItIsOurDeliberateErr(err)
+        }
+        sinon.verifyAndRestore()
     })
 })

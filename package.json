@@ -5,9 +5,9 @@
   "main": "app.js",
   "scripts": {
     "buildDocs": "apidoc -i src/api -o src/static_files/docs -t src/templates/apidocs_template/template/ --private true",
-    "dev": "npm run buildDocs; nodemon ./src/app.js",
-    "debug": "npm run buildDocs; nodemon --inspect-brk ./src/app.js",
-    "start": "npm run buildDocs; node --trace-warnings ./src/app.js --name kittens-api",
+    "dev": "npm run buildDocs && nodemon ./src/app.js",
+    "debug": "npm run buildDocs && nodemon --inspect-brk ./src/app.js",
+    "start": "npm run buildDocs && node --trace-warnings ./src/app.js --name kittens-api",
     "test": "mocha --timeout 15000 src/**/*.test.js --exit"
   },
   "author": "Hashir Ahmad",
